@@ -6,7 +6,7 @@ import 'package:jobs_tdd/features/apply/presenation/bloc/cubit/apply_cubit.dart'
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/signup/cubit/signup_cubit.dart';
 
 class ApplyJobScreen extends StatelessWidget {
- // int? job_id;
+  // int? job_id;
   ApplyInfo? user;
   ApplyJobScreen({Key? key}) : super(key: key);
   @override
@@ -41,6 +41,7 @@ class ApplyJobScreen extends StatelessWidget {
                     initial: () {},
                     apply: (msg) {
                       print(msg);
+                      Navigator.pop(context);
                     });
               },
               builder: (context, state) {
@@ -50,8 +51,8 @@ class ApplyJobScreen extends StatelessWidget {
                         user_id: MySharedPreferences.getUserId(),
                         job_id: MySharedPreferences.getJobId());
                     BlocProvider.of<ApplyCubit>(context).apply(user!);
-                    print(" job id " +  MySharedPreferences.getJobId().toString());
-
+                    print(
+                        " job id " + MySharedPreferences.getJobId().toString());
                   },
                   child: Text(
                     "apply",

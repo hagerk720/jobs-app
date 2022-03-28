@@ -10,7 +10,7 @@ part of 'signup_data_source.dart';
 
 class _SignupDataSource implements SignupDataSource {
   _SignupDataSource(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'http://6cf4-154-180-84-54.ngrok.io/api/';
+    baseUrl ??= 'https://0a20-154-180-84-54.ngrok.io/api/';
   }
 
   final Dio _dio;

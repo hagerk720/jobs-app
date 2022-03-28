@@ -31,13 +31,14 @@ class _JobsScreenState extends State<JobsScreen> {
   Widget buildBlocWidget() {
     return BlocBuilder<JobCubit, JobState>(
       builder: (context, state) {
-       // print(MySharedPreferences.getToken());
+        // print(MySharedPreferences.getToken());
         return state.when(
           initial: () {
-            return Container(
-              padding: EdgeInsets.only(top: 50, left: 50),
-              child: Text("some thing wrong"),
-              width: double.infinity,
+            return Center(
+              child: Container(
+                child: const Text("loading"),
+                width: double.infinity,
+              ),
             );
           },
           loaded: (data) {

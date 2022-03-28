@@ -9,7 +9,7 @@ import '../../models/login/login_data_response_model.dart';
 
 part 'login_data_source.g.dart';
 
-@RestApi(baseUrl: "http://6cf4-154-180-84-54.ngrok.io/api/")
+@RestApi(baseUrl: "https://0a20-154-180-84-54.ngrok.io/api/")
 abstract class LoginDataSource {
   factory LoginDataSource(Dio dio, {String baseUrl}) = _LoginDataSource;
   @POST("login")

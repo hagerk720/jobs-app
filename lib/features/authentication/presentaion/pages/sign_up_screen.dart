@@ -111,7 +111,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           response.token.toString());
                       await MySharedPreferences.setUserId(
                           response.user?.id);
-                      Navigator.pushReplacementNamed(context, "/jobs");
+                      Navigator.pushNamed(context, "/jobs");
                     });
               },
               builder: (context, state) {

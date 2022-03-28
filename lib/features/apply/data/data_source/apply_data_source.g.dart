@@ -10,7 +10,7 @@ part of 'apply_data_source.dart';
 
 class _ApplyDataSource implements ApplyDataSource {
   _ApplyDataSource(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'http://6cf4-154-180-84-54.ngrok.io/api/';
+    baseUrl ??= 'https://0a20-154-180-84-54.ngrok.io/api/';
   }
 
   final Dio _dio;

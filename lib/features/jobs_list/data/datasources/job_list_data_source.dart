@@ -5,7 +5,7 @@ import 'package:retrofit/http.dart';
 
 part 'job_list_data_source.g.dart';
 
-@RestApi(baseUrl: "http://6cf4-154-180-84-54.ngrok.io/api/")
+@RestApi(baseUrl: "https://0a20-154-180-84-54.ngrok.io/api/")
 abstract class JobListDataSource {
   factory JobListDataSource(Dio dio, {String baseUrl}) = _JobListDataSource;
   @GET("jobs")
