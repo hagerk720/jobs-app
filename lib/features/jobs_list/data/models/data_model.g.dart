@@ -7,14 +7,13 @@ part of 'data_model.dart';
 // **************************************************************************
 
 DataModel _$DataModelFromJson(Map<String, dynamic> json) => DataModel(
-      dataInfo: (json['data'] as List<dynamic>?)
+      data: (json['data'] as List<dynamic>?)
           ?.map((e) => JobModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      messageInfo: json['Message'] as String?,
+      Message: json['Message'] as String?,
     );
 
-// ignore: unused_element
 Map<String, dynamic> _$DataModelToJson(DataModel instance) => <String, dynamic>{
-      'data': instance.dataInfo,
-      'Message': instance.messageInfo,
+      'data': instance.data,
+      'Message': instance.Message,
     };

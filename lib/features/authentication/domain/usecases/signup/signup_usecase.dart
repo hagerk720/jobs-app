@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../../cores/errors/failure.dart';
 import '../../entities/signup/signup_data_response.dart';
 import '../../entities/signup/signup_user.dart';
 import '../../repositories/signup/sign_up_repository.dart';
-
+@injectable
 class SignupUseCase {
   final SignupRepository signupRepository;
   Either<Failure, SignupDataResponse>? sign; 

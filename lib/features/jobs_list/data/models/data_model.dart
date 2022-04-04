@@ -5,13 +5,10 @@ part 'data_model.g.dart';
 
 @JsonSerializable()
 class DataModel extends Data {
- @JsonKey(name: "data")final List<JobModel>? dataInfo; 
-  @JsonKey(name: 'Message')final String? messageInfo; 
- const  DataModel(
-    {
-required this.dataInfo , required this.messageInfo
-    }
-  ):super(data: dataInfo , message: messageInfo);
+  final List<JobModel>? data;
+  final String? Message; 
+  const DataModel({this.data, this.Message})
+      : super(dataEntity: data, messageEntity: Message);
   factory DataModel.fromJson(Map<String, dynamic> json) =>
       _$DataModelFromJson(json);
 }

@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
 import 'package:jobs_tdd/cores/errors/failure.dart';
 import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
@@ -7,20 +8,19 @@ import 'package:jobs_tdd/features/authentication/domain/entities/login/login_use
 import 'package:jobs_tdd/features/authentication/domain/repositories/login/login_repository.dart';
 
 import '../../../../../cores/errors/exceptions.dart';
-import '../../../../../cores/locator.dart';
 import '../../../domain/entities/login/login_data_response.dart';
 import '../../datasources/login/login_data_source.dart';
 
-LoginDataSource dataSource = locator.get<LoginDataSource>();
-
+@LazySingleton(as: LoginRepository)
 class LoginRepositoryImp implements LoginRepository {
+  LoginDataSource dataSource  ; 
   LocalDataSource localDataSource;
   LoginRepositoryImp({
+    required this.dataSource,
     required this.localDataSource,
   });
   @override
   Future<Either<Failure, LoginDataResponse>> login(LoginUser loginUser) async {
-    //print(toModel(loginUser).toJson());
     try {
       final data = await dataSource.login(loginUser.toModel());
       await localDataSource.saveToken(data.token!);

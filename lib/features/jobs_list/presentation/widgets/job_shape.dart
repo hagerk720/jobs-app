@@ -5,9 +5,10 @@ import 'package:jobs_tdd/features/jobs_list/domain/entities/job.dart';
 
 // ignore: must_be_immutable
 class JobShape extends StatelessWidget {
-  LocalDataSource? localDataSource; 
+  LocalDataSource? localDataSource;
   Job job;
-  JobShape({Key? key, required this.job , this.localDataSource}) : super(key: key);
+  JobShape({Key? key, required this.job, this.localDataSource})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

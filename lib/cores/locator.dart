@@ -1,5 +1,5 @@
 //import 'dart:_http';
-import 'package:dio/dio.dart';
+/*import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
 import 'package:jobs_tdd/features/apply/data/data_source/apply_data_source.dart';
@@ -59,4 +59,4 @@ void setUp() {
   locator.registerLazySingleton<ApplyRepository>(() => ApplyRepositoryImp());
   locator.registerLazySingleton<ApplyUseCase>(
       () => ApplyUseCase(locator.get<ApplyRepository>()));
-}
+}*/

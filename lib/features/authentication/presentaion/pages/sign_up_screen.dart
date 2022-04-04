@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
 import 'package:jobs_tdd/features/authentication/domain/entities/signup/signup_data_response.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/signup/cubit/signup_cubit.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_page_title.dart';

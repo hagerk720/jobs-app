@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_tdd/features/authentication/domain/entities/login/login_user.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/login/cubit/login_cubit.dart';
+import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_page_title.dart';
+import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_signup_btn.dart';
 
-import '../../../../cores/utils/shared_preferance.dart';
-import '../widgets/login_page_title.dart';
-import '../widgets/login_signup_btn.dart';
 
 // ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {

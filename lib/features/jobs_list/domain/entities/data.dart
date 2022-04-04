@@ -3,12 +3,12 @@ import 'package:jobs_tdd/features/jobs_list/domain/entities/job.dart';
 
 
 class Data extends Equatable {
- final List<Job>? data;
- final String? message;
+ final List<Job>? dataEntity;
+ final String? messageEntity;
 
- const Data({required this.data,required this.message});
+ const Data({required this.dataEntity, required this.messageEntity});
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [];
 
 }
