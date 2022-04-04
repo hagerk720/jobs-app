@@ -1,6 +1,7 @@
 //import 'dart:_http';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
 import 'package:jobs_tdd/features/apply/data/data_source/apply_data_source.dart';
 import 'package:jobs_tdd/features/apply/data/repository/appyly_repository_imp.dart';
 import 'package:jobs_tdd/features/apply/domain/repository/apply_repository.dart';
@@ -16,6 +17,7 @@ import 'package:jobs_tdd/features/jobs_list/data/repositories/job_repository_imp
 import 'package:jobs_tdd/features/jobs_list/domain/repositories/jobs_repository.dart';
 import 'package:jobs_tdd/features/jobs_list/domain/usecases/get_jobs_list.dart';
 import 'package:jobs_tdd/features/jobs_list/presentation/bloc/jobs_cubit/cubit/job_cubit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../features/authentication/data/datasources/signup/signup_data_source.dart';
 import '../features/authentication/domain/repositories/signup/sign_up_repository.dart';
@@ -25,7 +27,8 @@ final locator = GetIt.instance;
 //Dio? dio;
 void setUp() {
   Dio dio = Dio();
-  dio.options.validateStatus=(status)=>status! < 500;
+  SharedPreferences? sharedPreferences;
+  dio.options.validateStatus = (status) => status! < 500;
   // logic
   locator.registerLazySingleton<JobCubit>(() => JobCubit());
   locator
@@ -33,25 +36,27 @@ void setUp() {
 
   // locator.registerLazySingleton<JobsRepositories>(
   //   () => JobRepositoryImp(dataSource: locator.get<JobListDataSource>()));
-  locator.registerLazySingleton<JobsRepositories>(() => JobRepositoryImp());
+  locator.registerLazySingleton<JobsRepositories>(() =>
+      JobRepositoryImp(localDataSource: LocalDataSource(sharedPreferences!)));
 
   locator.registerLazySingleton<GetJobList>(
       () => GetJobList(locator.get<JobsRepositories>()));
 
   locator.registerLazySingleton<SignupDataSource>(() => SignupDataSource(dio));
 
-locator.registerLazySingleton<SignupRepository>(() => SignupRepositoryImp());
- locator.registerLazySingleton<SignupUseCase>(
-      () => SignupUseCase(locator.get<SignupRepository>() ));
+  locator.registerLazySingleton<SignupRepository>(() => SignupRepositoryImp(
+      localDataSource: LocalDataSource(sharedPreferences!)));
+  locator.registerLazySingleton<SignupUseCase>(
+      () => SignupUseCase(locator.get<SignupRepository>()));
 
-    locator.registerLazySingleton<LoginDataSource>(() => LoginDataSource(dio));
-locator.registerLazySingleton<LoginRepository>(() => LoginRepositoryImp());
- locator.registerLazySingleton<LoginUseCase>(
-      () => LoginUseCase(locator.get<LoginRepository>() ));
+  locator.registerLazySingleton<LoginDataSource>(() => LoginDataSource(dio));
+  locator.registerLazySingleton<LoginRepository>(() =>
+      LoginRepositoryImp(localDataSource: LocalDataSource(sharedPreferences!)));
+  locator.registerLazySingleton<LoginUseCase>(
+      () => LoginUseCase(locator.get<LoginRepository>()));
 
-    locator.registerLazySingleton<ApplyDataSource>(() => ApplyDataSource(dio));
-locator.registerLazySingleton<ApplyRepository>(() => ApplyRepositoryImp());
- locator.registerLazySingleton<ApplyUseCase>(
-      () => ApplyUseCase(locator.get<ApplyRepository>() ));
-    
+  locator.registerLazySingleton<ApplyDataSource>(() => ApplyDataSource(dio));
+  locator.registerLazySingleton<ApplyRepository>(() => ApplyRepositoryImp());
+  locator.registerLazySingleton<ApplyUseCase>(
+      () => ApplyUseCase(locator.get<ApplyRepository>()));
 }

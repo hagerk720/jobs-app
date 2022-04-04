@@ -5,10 +5,10 @@ import 'package:jobs_tdd/features/authentication/domain/entities/signup/signup_u
 
 extension RegistrationMapper on UserSignup {
   SignupUserModel toModel() => SignupUserModel(
-        emailUser: email,
-        passwordUser: password,
-        confirmPassword: password_confirmation,
-        nameUser: name,
+        email: email,
+        password: password,
+        password_confirmation: password_confirmation,
+        name: name,
       );
 }
 

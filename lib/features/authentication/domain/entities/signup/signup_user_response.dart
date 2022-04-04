@@ -3,9 +3,9 @@
 import 'package:equatable/equatable.dart';
 
 class SignupUserResponse  extends Equatable{
-final String? name;
-final String? email;
-final int? id; 
+final String name;
+final String email;
+final int id; 
  const SignupUserResponse({
   required  this.name,
   required  this.email,
@@ -13,8 +13,5 @@ final int? id;
   });
 
   @override
-  List<Object?> get props => throw UnimplementedError();
-
-  
-  
+  List<Object?> get props => []; 
 }

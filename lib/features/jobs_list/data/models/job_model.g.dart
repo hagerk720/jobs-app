@@ -15,7 +15,6 @@ JobModel _$JobModelFromJson(Map<String, dynamic> json) => JobModel(
       ..description = json['description'] as String?
       ..idJob = json['idJob'] as int?;
 
-// ignore: unused_element
 Map<String, dynamic> _$JobModelToJson(JobModel instance) => <String, dynamic>{
       'nameJob': instance.nameJob,
       'description': instance.description,

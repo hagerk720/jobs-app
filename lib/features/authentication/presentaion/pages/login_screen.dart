@@ -16,8 +16,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // ignore: non_constant_identifier_names
-   GlobalKey<FormState> _formKey_login = GlobalKey<FormState>();
+    // ignore: non_constant_identifier_names
+    GlobalKey<FormState> _formKey_login = GlobalKey<FormState>();
 
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {},
@@ -71,11 +71,7 @@ class LoginScreen extends StatelessWidget {
                         state.when(
                             initial: () {},
                             login: (response) async {
-                              await MySharedPreferences.init();
-                              await MySharedPreferences.setToken(
-                                  response.token.toString());
-                              await MySharedPreferences.setUserId(
-                                  response.user?.id);
+
                               Navigator.pushNamed(context, "/jobs");
                             });
                       },
@@ -117,7 +113,7 @@ class LoginScreen extends StatelessWidget {
     String p =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-    RegExp regExp =  RegExp(p);
+    RegExp regExp = RegExp(p);
 
     return regExp.hasMatch(em);
   }

@@ -10,7 +10,7 @@ final String? name;
 const  LoginUserResponse({this.id, this.name});
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props =>[];
 
 
 

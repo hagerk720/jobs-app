@@ -7,5 +7,5 @@ class LoginUser extends Equatable {
  const LoginUser({this.email, this.password});
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [];
 }

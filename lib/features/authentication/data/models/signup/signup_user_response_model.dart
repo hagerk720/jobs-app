@@ -6,17 +6,15 @@ part 'signup_user_response_model.g.dart';
 
 @JsonSerializable()
 class SignupUserResponceModel extends SignupUserResponse {
-  @JsonKey(name: "name")
- final String? userName;
-  @JsonKey(name: "email")
- final String? userEmail;
-  @JsonKey(name: "id")
- final int? userId;
+  
  const SignupUserResponceModel({
-   required this.userName,
-   required this.userEmail,
-   required this.userId,
-  }):super(email: userEmail , name:  userName , id: userId);
+ required String name,
+ required String  email,
+ required int id,
+  }):super(email: email , name:  name , id: id);
   factory SignupUserResponceModel.fromJson(Map<String, dynamic> json) =>
       _$SignupUserResponceModelFromJson(json);
+  Map<String, dynamic> toJson() => _$SignupUserResponceModelToJson(this);
+
+      
 }

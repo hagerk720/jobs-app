@@ -5,7 +5,6 @@ import 'package:jobs_tdd/features/authentication/domain/entities/signup/signup_d
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/signup/cubit/signup_cubit.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_page_title.dart';
 
-
 import '../../domain/entities/signup/signup_user.dart';
 import '../widgets/login_signup_btn.dart';
 
@@ -29,8 +28,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-      // ignore: non_constant_identifier_names
-      GlobalKey<FormState> _formKey_signup = GlobalKey<FormState>();
+    // ignore: non_constant_identifier_names
+    GlobalKey<FormState> _formKey_signup = GlobalKey<FormState>();
 
     return Scaffold(
       body: Container(
@@ -91,9 +90,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     validator: (String? value) {
                       if (value == password) {
                         confirmPassword = value;
-                      } else {
-                        
-                      }
+                      } else {}
                       return null;
                     },
                   ),
@@ -105,11 +102,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 state.when(
                     initial: () {},
                     signup: (response) async {
-                      await MySharedPreferences.init();
-                      await MySharedPreferences.setToken(
-                          response.token.toString());
-                      await MySharedPreferences.setUserId(
-                          response.user?.id);
                       Navigator.pushNamed(context, "/jobs");
                     });
               },
@@ -141,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     String p =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-    RegExp regExp =  RegExp(p);
+    RegExp regExp = RegExp(p);
 
     return regExp.hasMatch(em);
   }

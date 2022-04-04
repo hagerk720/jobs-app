@@ -1,25 +1,34 @@
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class MySharedPreferences {
-  static SharedPreferences? _preferences;
-  static const keyToken = "token";
-  static const keyUserId = "user id";
+@LazySingleton(as: LocalDataSource)
+class LocalDataSource {
+  SharedPreferences sharedPreferences;
+  LocalDataSource(this.sharedPreferences);
 
-  static Future init() async =>
-      _preferences = await SharedPreferences.getInstance();
+  Future<bool> saveToken(String token) async {
+    return sharedPreferences.setString('token', token);
+  }
 
-  static Future setToken(String token) async =>
-      await _preferences!.setString(keyToken, token);
+  Future<String?> getToken() async {
+    return sharedPreferences.getString('token');
+  }
 
-  static String? getToken() => _preferences!.getString(keyToken);
+  Future<void> deleteToken() async {
+    sharedPreferences.remove('token');
 
-  static Future setUserId(int? userId) async =>
-      await _preferences!.setInt(keyUserId, userId!);
+  }
+  Future<bool> saveJobId(int jobId) async {
+    return sharedPreferences.setInt('jobID', jobId);
+  }
+  Future<bool> saveUserId(int userId) async {
+    return sharedPreferences.setInt('userId', userId);
+  }
+  Future<int?> getUserId() async {
+    return sharedPreferences.getInt('userId');
+  }
+  Future<int?> getJobId() async {
+    return sharedPreferences.getInt('jobID');
+  }
 
-  static int? getUserId() => _preferences!.getInt(keyUserId);
-
-  static Future setJobId(int jobId) async =>
-      await _preferences!.setInt("jobId", jobId);
-
-  static int? getJobId() => _preferences!.getInt("jobId");
 }

@@ -5,8 +5,9 @@ import 'package:jobs_tdd/features/jobs_list/domain/entities/job.dart';
 
 // ignore: must_be_immutable
 class JobShape extends StatelessWidget {
+  LocalDataSource? localDataSource; 
   Job job;
-  JobShape({Key? key, required this.job}) : super(key: key);
+  JobShape({Key? key, required this.job , this.localDataSource}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +16,8 @@ class JobShape extends StatelessWidget {
       child: Card(
         color: Colors.amber[100],
         child: Column(
-
           children: [
             Text(
-              
               "job title " + job.nameJob.toString(),
               style: const TextStyle(color: Colors.black),
             ),
@@ -30,7 +29,7 @@ class JobShape extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                MySharedPreferences.setJobId(job.idJob!);
+                localDataSource!.saveJobId(job.idJob!);
                 Navigator.pushNamed(context, "/apply");
               },
               child: const Text(

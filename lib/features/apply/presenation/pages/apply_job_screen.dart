@@ -8,6 +8,7 @@ import 'package:jobs_tdd/features/apply/presenation/bloc/cubit/apply_cubit.dart'
 // ignore: must_be_immutable
 class ApplyJobScreen extends StatelessWidget {
   ApplyInfo? user;
+  LocalDataSource? localDataSource;
   ApplyJobScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -53,12 +54,12 @@ class ApplyJobScreen extends StatelessWidget {
               },
               builder: (context, state) {
                 return ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     user = ApplyInfo(
-                        idUser: MySharedPreferences.getUserId(),
-                        idJob: MySharedPreferences.getJobId());
+                        idUser:await localDataSource!.getUserId(),
+                        idJob:await localDataSource!.getJobId(),
+                        );
                     BlocProvider.of<ApplyCubit>(context).apply(user!);
-                   
                   },
                   child: const Text(
                     "apply",

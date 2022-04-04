@@ -9,16 +9,15 @@ part of 'signup_user_response_model.dart';
 SignupUserResponceModel _$SignupUserResponceModelFromJson(
         Map<String, dynamic> json) =>
     SignupUserResponceModel(
-      userName: json['name'] as String?,
-      userEmail: json['email'] as String?,
-      userId: json['id'] as int?,
+      name: json['name'] as String,
+      email: json['email'] as String,
+      id: json['id'] as int,
     );
 
-// ignore: unused_element
 Map<String, dynamic> _$SignupUserResponceModelToJson(
         SignupUserResponceModel instance) =>
     <String, dynamic>{
-      'name': instance.userName,
-      'email': instance.userEmail,
-      'id': instance.userId,
+      'name': instance.name,
+      'email': instance.email,
+      'id': instance.id,
     };

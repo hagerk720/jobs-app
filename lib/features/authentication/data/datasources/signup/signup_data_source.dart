@@ -10,9 +10,8 @@ part 'signup_data_source.g.dart';
 @RestApi(baseUrl: baseURL)
 abstract class SignupDataSource {
   factory SignupDataSource(Dio dio) = _SignupDataSource;
-  
-  @POST("register")
-  Future<SignupDataResponseModel> signup( @Body() SignupUserModel signupUserModel);
- 
 
+  @POST("register")
+  Future<SignupDataResponseModel> signup(
+      @Body() SignupUserModel signupUserModel);
 }

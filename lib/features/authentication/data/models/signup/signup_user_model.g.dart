@@ -8,16 +8,16 @@ part of 'signup_user_model.dart';
 
 SignupUserModel _$SignupUserModelFromJson(Map<String, dynamic> json) =>
     SignupUserModel(
-      nameUser: json['name'] as String?,
-      emailUser: json['email'] as String?,
-      passwordUser: json['passowrd'] as String?,
-      confirmPassword: json['confirmation_passowrd'] as String?,
+      name: json['name'],
+      email: json['email'],
+      password: json['password'],
+      password_confirmation: json['password_confirmation'],
     );
 
 Map<String, dynamic> _$SignupUserModelToJson(SignupUserModel instance) =>
     <String, dynamic>{
-      'name': instance.nameUser,
-      'email': instance.emailUser,
-      'passowrd': instance.passwordUser,
-      'confirmation_passowrd': instance.confirmPassword,
+      'name': instance.name,
+      'email': instance.email,
+      'password': instance.password,
+      'password_confirmation': instance.password_confirmation,
     };

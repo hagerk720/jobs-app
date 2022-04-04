@@ -9,6 +9,8 @@ part 'job_list_data_source.g.dart';
 abstract class JobListDataSource {
   factory JobListDataSource(Dio dio) = _JobListDataSource;
   @GET("jobs")
-  Future<DataModel> getJobsList();
+  Future<DataModel> getJobsList({
+     @Header('Authorization') required String token,
+  });
 
 }
