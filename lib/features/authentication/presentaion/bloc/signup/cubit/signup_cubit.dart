@@ -11,16 +11,13 @@ part 'signup_state.dart';
 part 'signup_cubit.freezed.dart';
 
 class SignupCubit extends Cubit<SignupState> {
-  SignupCubit() : super(SignupState.initial());
+  SignupCubit() : super(const SignupState.initial());
   Future<void> signupUser(UserSignup userSignUp) async {
-    // print(userSignUp.toModel());
     await locator.get<SignupUseCase>().call(userSignUp).then((value) {
       value;
       value?.fold(
         (l) => {},
         (r) => {
-          print(r.token),
-          print("in cubit" + r.toString()),
           emit(SignupState.signup(r))
         },
       );

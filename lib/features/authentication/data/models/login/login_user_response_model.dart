@@ -5,12 +5,16 @@ part 'login_user_response_model.g.dart';
 
 @JsonSerializable()
 class LoginUserResponseModel extends LoginUserResponse {
-  LoginUserResponseModel({
-    @JsonKey(name: "id") int? id ,
-    @JsonKey(name : "name") String ? name });
+  @JsonKey(name: "id")
+  final int? idUSer;
+  @JsonKey(name: "name")
+  final String? nameUSer;
+  const LoginUserResponseModel({
+    required this.nameUSer,
+    required this.idUSer,
+  }) : super();
   factory LoginUserResponseModel.fromJson(Map<String, dynamic> json) =>
       _$LoginUserResponseModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$LoginUserResponseModelToJson(this);
-    
+  Map<String, dynamic> toJson() => _$LoginUserResponseModelToJson(this);
 }

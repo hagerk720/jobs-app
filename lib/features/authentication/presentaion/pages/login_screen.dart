@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_tdd/features/authentication/domain/entities/login/login_user.dart';
-import 'package:jobs_tdd/features/authentication/domain/entities/signup/signup_user.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/login/cubit/login_cubit.dart';
 
 import '../../../../cores/utils/shared_preferance.dart';
 import '../widgets/login_page_title.dart';
 import '../widgets/login_signup_btn.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   String? email;
   String? password;
-  GlobalKey<FormState> _formKey_login = GlobalKey<FormState>();
   LoginUser? user;
   LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+   // ignore: non_constant_identifier_names
+   GlobalKey<FormState> _formKey_login = GlobalKey<FormState>();
+
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           body: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,14 +75,14 @@ class LoginScreen extends StatelessWidget {
                               await MySharedPreferences.setToken(
                                   response.token.toString());
                               await MySharedPreferences.setUserId(
-                                  response.userEntiti?.id);
+                                  response.user?.id);
                               Navigator.pushNamed(context, "/jobs");
                             });
                       },
                       builder: (context, state) {
                         return LoginSignUpBtn(
                             btnText: "Login",
-                            on_Pressed: () => {
+                            onPressed: () => {
                                   if (_formKey_login.currentState!.validate())
                                     {
                                       user = LoginUser(
@@ -89,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                                       Navigator.pushNamed(context, "/jobs")
                                     }
                                   else
-                                    {print("fill fields correctly")}
+                                    {}
                                 });
                       },
                     ),
@@ -97,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, '/sign_up');
                         },
-                        child: Text(
+                        child: const Text(
                           "Sign UP",
                           style: TextStyle(color: Colors.amber),
                         ))
@@ -115,7 +117,7 @@ class LoginScreen extends StatelessWidget {
     String p =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-    RegExp regExp = new RegExp(p);
+    RegExp regExp =  RegExp(p);
 
     return regExp.hasMatch(em);
   }

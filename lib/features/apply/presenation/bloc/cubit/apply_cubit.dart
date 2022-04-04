@@ -9,7 +9,7 @@ part 'apply_state.dart';
 part 'apply_cubit.freezed.dart';
 
 class ApplyCubit extends Cubit<ApplyState> {
-  ApplyCubit() : super(ApplyState.initial());
+  ApplyCubit() : super(const ApplyState.initial());
 
   Future<void> apply(ApplyInfo applyInfo) async {
     // print(userSignUp.toModel());
@@ -18,8 +18,7 @@ class ApplyCubit extends Cubit<ApplyState> {
       value?.fold(
         (l) => {},
         (r) => {
-          print(r),
-          print("in cubit" + r.toString()),
+          
           emit(ApplyState.apply(r))
         },
       );

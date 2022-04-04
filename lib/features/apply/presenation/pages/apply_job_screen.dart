@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
 import 'package:jobs_tdd/features/apply/domain/entities/apply_info.dart';
 import 'package:jobs_tdd/features/apply/presenation/bloc/cubit/apply_cubit.dart';
-import 'package:jobs_tdd/features/authentication/presentaion/bloc/signup/cubit/signup_cubit.dart';
 
+// ignore: must_be_immutable
 class ApplyJobScreen extends StatelessWidget {
-  // int? job_id;
   ApplyInfo? user;
   ApplyJobScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,7 +40,14 @@ class ApplyJobScreen extends StatelessWidget {
                 state.when(
                     initial: () {},
                     apply: (msg) {
-                      print(msg);
+                      Fluttertoast.showToast(
+                          msg: msg.toString(),
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
                       Navigator.pop(context);
                     });
               },
@@ -48,13 +55,12 @@ class ApplyJobScreen extends StatelessWidget {
                 return ElevatedButton(
                   onPressed: () {
                     user = ApplyInfo(
-                        user_id: MySharedPreferences.getUserId(),
-                        job_id: MySharedPreferences.getJobId());
+                        idUser: MySharedPreferences.getUserId(),
+                        idJob: MySharedPreferences.getJobId());
                     BlocProvider.of<ApplyCubit>(context).apply(user!);
-                    print(
-                        " job id " + MySharedPreferences.getJobId().toString());
+                   
                   },
-                  child: Text(
+                  child: const Text(
                     "apply",
                     style: TextStyle(color: Colors.white),
                   ),

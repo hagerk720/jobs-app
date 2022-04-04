@@ -14,7 +14,6 @@ class JobRepositoryImp implements JobsRepositories {
   Future<Either<Failure,DataModel>> getJobsList() async {
     try {
       final data = await dataSource.getJobsList();
-      print("Data $data");
       return Right(data);
     } on ServerException {
       return Left(ServerFailure());

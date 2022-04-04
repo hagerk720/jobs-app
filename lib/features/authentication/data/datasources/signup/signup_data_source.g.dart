@@ -10,7 +10,7 @@ part of 'signup_data_source.dart';
 
 class _SignupDataSource implements SignupDataSource {
   _SignupDataSource(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://0a20-154-180-84-54.ngrok.io/api/';
+    baseUrl ??= 'https://laravel-job-api.herokuapp.com/api/';
   }
 
   final Dio _dio;

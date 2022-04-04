@@ -6,12 +6,13 @@ part 'signup_user_model.g.dart';
 
 @JsonSerializable()
 class SignupUserModel extends UserSignup {
-  SignupUserModel({
-    String? name,
-    String? email,
-    String? password,
-    String? confirmPassword,
-  });
+  @JsonKey(name: "name")final String? nameUser ;
+  @JsonKey(name: "email")final  String? emailUser ;
+  @JsonKey(name: "passowrd")final  String? passwordUser;
+  @JsonKey(name: "confirmation_passowrd")final  String? confirmPassword ; 
+ const SignupUserModel({
+    required this.nameUser , required this.emailUser , required this.passwordUser , this.confirmPassword , 
+  }):super(name: nameUser , email:  emailUser , password: passwordUser , password_confirmation: confirmPassword);
   factory SignupUserModel.fromJson(Map<String, dynamic> json) =>
       _$SignupUserModelFromJson(json);
 

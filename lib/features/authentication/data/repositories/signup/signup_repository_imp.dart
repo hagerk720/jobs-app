@@ -1,5 +1,6 @@
 import 'package:jobs_tdd/cores/errors/failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:jobs_tdd/features/authentication/data/models/mappers/mapper_authentication.dart';
 
 import '../../../../../cores/errors/exceptions.dart';
 import '../../../../../cores/locator.dart';
@@ -14,10 +15,8 @@ class SignupRepositoryImp implements SignupRepository {
   @override
   Future<Either<Failure, SignupDataResponseModel>> signUp(
       UserSignup userSignup) async {
-    print(userSignup.toJson());
     try {
-      final data = await dataSource.signup(userSignup);
-      print("Data $data");
+      final data = await dataSource.signup(userSignup.toModel());
       return Right(data);
     } on ServerException {
       return Left(ServerFailure());

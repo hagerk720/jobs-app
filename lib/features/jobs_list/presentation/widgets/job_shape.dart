@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
-import 'package:jobs_tdd/features/apply/presenation/pages/apply_job_screen.dart';
-import 'package:jobs_tdd/features/jobs_list/domain/entities/data.dart';
+
 import 'package:jobs_tdd/features/jobs_list/domain/entities/job.dart';
 
+// ignore: must_be_immutable
 class JobShape extends StatelessWidget {
   Job job;
   JobShape({Key? key, required this.job}) : super(key: key);
@@ -11,7 +11,7 @@ class JobShape extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Card(
         color: Colors.amber[100],
         child: Column(
@@ -19,21 +19,21 @@ class JobShape extends StatelessWidget {
           children: [
             Text(
               
-              "job title " + job.jobName.toString(),
-              style: TextStyle(color: Colors.black),
+              "job title " + job.nameJob.toString(),
+              style: const TextStyle(color: Colors.black),
             ),
-            SizedBox(
+            const SizedBox(
               height: 7,
             ),
-            SizedBox(
+            const SizedBox(
               height: 7,
             ),
             ElevatedButton(
               onPressed: () {
-                MySharedPreferences.setJobId(job.jobId!);
+                MySharedPreferences.setJobId(job.idJob!);
                 Navigator.pushNamed(context, "/apply");
               },
-              child: Text(
+              child: const Text(
                 "apply",
                 style: TextStyle(color: Colors.white),
               ),

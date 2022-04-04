@@ -7,13 +7,20 @@ part of 'job_model.dart';
 // **************************************************************************
 
 JobModel _$JobModelFromJson(Map<String, dynamic> json) => JobModel(
+      jobName: json['JobName'] as String?,
+      jobDesc: json['Description'] as String?,
       jobId: json['id'] as int?,
     )
-      ..jobName = json['JobName'] as String?
-      ..Description = json['Description'] as String?;
+      ..nameJob = json['nameJob'] as String?
+      ..description = json['description'] as String?
+      ..idJob = json['idJob'] as int?;
 
+// ignore: unused_element
 Map<String, dynamic> _$JobModelToJson(JobModel instance) => <String, dynamic>{
+      'nameJob': instance.nameJob,
+      'description': instance.description,
+      'idJob': instance.idJob,
       'JobName': instance.jobName,
-      'Description': instance.Description,
+      'Description': instance.jobDesc,
       'id': instance.jobId,
     };

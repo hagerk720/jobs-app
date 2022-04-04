@@ -5,9 +5,10 @@ part 'apply_info_model.g.dart';
 
 @JsonSerializable()
 class ApplyInfoModel extends ApplyInfo {
-  int? user_id;
-  int? job_id; 
-  ApplyInfoModel({this.user_id , this.job_id});
+  
+  @JsonKey(name: "user_id") int? userId;
+  @JsonKey(name: "job_id") int? jobId; 
+  ApplyInfoModel({ this.userId, this.jobId});
 
   factory ApplyInfoModel.fromJson(Map<String, dynamic> json) =>
       _$ApplyInfoModelFromJson(json);

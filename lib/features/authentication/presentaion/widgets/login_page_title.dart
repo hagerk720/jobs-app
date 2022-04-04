@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class LoginScreenTitle extends StatelessWidget {
   String title;
   String subTitle; 
@@ -11,11 +12,11 @@ class LoginScreenTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(color: Colors.white, fontSize: 60),
+          style: const TextStyle(color: Colors.white, fontSize: 60),
         ),
         Text(
           subTitle,
-          style: TextStyle(color: Colors.amber, fontSize: 50),
+          style: const TextStyle(color: Colors.amber, fontSize: 50),
         ),
       ],
     );

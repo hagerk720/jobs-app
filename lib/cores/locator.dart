@@ -1,6 +1,4 @@
 //import 'dart:_http';
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:jobs_tdd/features/apply/data/data_source/apply_data_source.dart';

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class LoginSignUpBtn extends StatelessWidget {
-  Function on_Pressed;
+  Function onPressed;
   String btnText;
-  LoginSignUpBtn({Key? key, required this.on_Pressed, required this.btnText})
+  LoginSignUpBtn({Key? key, required this.onPressed, required this.btnText})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => on_Pressed(),
+      onPressed: () => onPressed(),
       child: Text(
         btnText,
-        style: TextStyle(color: Colors.amber),
+        style: const TextStyle(color: Colors.amber),
       ),
       style: ButtonStyle(
           backgroundColor:

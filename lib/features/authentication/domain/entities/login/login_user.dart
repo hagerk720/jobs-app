@@ -1,20 +1,11 @@
-import 'package:jobs_tdd/features/authentication/data/models/login/login_user_model.dart';
-import 'package:json_annotation/json_annotation.dart';
 
-//
-part 'login_user.g.dart';
+import 'package:equatable/equatable.dart';
 
-@JsonSerializable()
-class LoginUser {
-//  @JsonKey(name: "name")
-  String? email;
-//  @JsonKey(name: "password")
-  String? password;
+class LoginUser extends Equatable {
+ final String? email;
+ final String? password;
+ const LoginUser({this.email, this.password});
 
-  LoginUser({this.email, this.password});
-
-  
-
-  Map<String, dynamic> toJson() => _$LoginUserToJson(this);
-
+  @override
+  List<Object?> get props => throw UnimplementedError();
 }

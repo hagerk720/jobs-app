@@ -1,39 +1,22 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
 
-import '../../../data/models/signup/signup_user_model.dart';
 
-part 'signup_user.g.dart';
+class UserSignup extends Equatable {
+  final String? name;
 
-@JsonSerializable()
-class UserSignup {
-  @JsonKey(name: "name")
-  String? name;
-  @JsonKey(name: "email")
-  String? email;
-  @JsonKey(name: "password")
-  String? password;
-  @JsonKey(name: "password_confirmation")
-  String? confirmPassword;
-  UserSignup({
-    this.name,
-    this.email,
-    this.password,
-    this.confirmPassword,
+  final String? email;
+
+  final String? password;
+  // ignore: non_constant_identifier_names
+ final String? password_confirmation;
+  const UserSignup({
+    required this.name,
+    required this.email,
+    required this.password,
+    // ignore: non_constant_identifier_names
+    required this.password_confirmation,
   });
-   UserSignup.login({
-    this.email,
-    this.password,
-  });
-  SignupUserModel toModel(UserSignup userSignup) {
-    return SignupUserModel(
-        name: userSignup.name,
-        email: userSignup.email,
-        password: userSignup.password,
-        confirmPassword: userSignup.confirmPassword);
-  }
 
-  factory UserSignup.fromJson(Map<String, dynamic> json) =>
-      _$UserSignupFromJson(json);
-
-  Map<String, dynamic> toJson() => _$UserSignupToJson(this);
+  @override
+  List<Object?> get props => throw UnimplementedError();
 }

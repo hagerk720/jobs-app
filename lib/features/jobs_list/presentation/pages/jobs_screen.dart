@@ -1,14 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 
 import '../bloc/jobs_cubit/cubit/job_cubit.dart';
 import '../widgets/job_list.dart';
 
 class JobsScreen extends StatefulWidget {
-  JobsScreen({Key? key}) : super(key: key);
+  const JobsScreen({Key? key}) : super(key: key);
 
   @override
   State<JobsScreen> createState() => _JobsScreenState();
@@ -34,9 +32,9 @@ class _JobsScreenState extends State<JobsScreen> {
         // print(MySharedPreferences.getToken());
         return state.when(
           initial: () {
-            return Center(
-              child: Container(
-                child: const Text("loading"),
+            return const Center(
+              child: SizedBox(
+                child: Text("loading"),
                 width: double.infinity,
               ),
             );

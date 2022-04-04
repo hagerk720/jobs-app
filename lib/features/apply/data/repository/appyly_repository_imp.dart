@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:jobs_tdd/features/apply/data/data_source/apply_data_source.dart';
-import 'package:jobs_tdd/features/apply/data/models/apply_info_model.dart';
 import 'package:jobs_tdd/features/apply/domain/entities/apply_info.dart';
 
 import '../../../../cores/errors/exceptions.dart';
@@ -17,7 +16,6 @@ class ApplyRepositoryImp implements ApplyRepository {
     
     try {
       final data = await dataSource.apply(applyInfo.toModel(applyInfo));
-      print("Data $data");
       return Right(data);
     } on ServerException {
       return Left(ServerFailure());

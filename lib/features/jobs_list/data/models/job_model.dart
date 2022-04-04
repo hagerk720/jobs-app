@@ -5,10 +5,11 @@ part 'job_model.g.dart';
 
 @JsonSerializable()
 class JobModel extends Job {
+     @JsonKey(name: "JobName") String? jobName;
+    @JsonKey(name: "Description") String? jobDesc;
+    @JsonKey(name: "id") int? jobId;
   JobModel({
-    @JsonKey(name: "JobName") String? JobName,
-    @JsonKey(name: "Description") String? jobDesc,
-    @JsonKey(name: "id") int? jobId ,
+   this.jobName , this.jobDesc , this.jobId
   });
 
   factory JobModel.fromJson(Map<String, dynamic> json) =>

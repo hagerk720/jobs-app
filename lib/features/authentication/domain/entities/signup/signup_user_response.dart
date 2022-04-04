@@ -1,19 +1,20 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'signup_user_response.g.dart';
 
-@JsonSerializable()
-class SignupUserResponse {
-@JsonKey(name: "name") String? name;
-@JsonKey(name: "email") String? email;
-@JsonKey(name: "id") int? id; 
-  SignupUserResponse({
-    this.name,
-    this.email,
-    this.id,
+import 'package:equatable/equatable.dart';
+
+class SignupUserResponse  extends Equatable{
+final String? name;
+final String? email;
+final int? id; 
+ const SignupUserResponse({
+  required  this.name,
+  required  this.email,
+  required  this.id,
   });
- factory SignupUserResponse.fromJson(Map<String, dynamic> json) =>
-      _$SignupUserResponseFromJson(json);
+
+  @override
+  List<Object?> get props => throw UnimplementedError();
+
   
   
 }

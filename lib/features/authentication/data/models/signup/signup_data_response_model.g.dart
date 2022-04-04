@@ -8,15 +8,18 @@ part of 'signup_data_response_model.dart';
 
 SignupDataResponseModel _$SignupDataResponseModelFromJson(
         Map<String, dynamic> json) =>
-    SignupDataResponseModel()
-      ..user = json['user'] == null
+    SignupDataResponseModel(
+      userInfo: json['user'] == null
           ? null
-          : SignupUserResponse.fromJson(json['user'] as Map<String, dynamic>)
-      ..token = json['token'] as String?;
+          : SignupUserResponceModel.fromJson(
+              json['user'] as Map<String, dynamic>),
+      tokenData: json['token'] as String?,
+    );
 
+// ignore: unused_element
 Map<String, dynamic> _$SignupDataResponseModelToJson(
         SignupDataResponseModel instance) =>
     <String, dynamic>{
-      'user': instance.user,
-      'token': instance.token,
+      'user': instance.userInfo,
+      'token': instance.tokenData,
     };

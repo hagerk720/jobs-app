@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart';
 import 'package:jobs_tdd/cores/locator.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/login/cubit/login_cubit.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/signup/cubit/signup_cubit.dart';
@@ -40,11 +39,11 @@ class MyApp extends StatelessWidget {
             ),
         '/sign_up': (context) => BlocProvider(
               create: (context) => SignupCubit(),
-              child: SignUpScreen(),
+              child: const SignUpScreen(),
             ),
         '/jobs': (context) => BlocProvider(
               create: (context) => JobCubit(),
-              child: JobsScreen(),
+              child: const JobsScreen(),
             ),
         '/apply': (context) => BlocProvider(
               create: (context) => ApplyCubit(),

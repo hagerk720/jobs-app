@@ -10,7 +10,7 @@ part of 'apply_data_source.dart';
 
 class _ApplyDataSource implements ApplyDataSource {
   _ApplyDataSource(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://0a20-154-180-84-54.ngrok.io/api/';
+    baseUrl ??= 'https://laravel-job-api.herokuapp.com/api/';
   }
 
   final Dio _dio;
@@ -26,7 +26,7 @@ class _ApplyDataSource implements ApplyDataSource {
     _data.addAll(applyInfoModel.toJson());
     final _result = await _dio.fetch<String>(_setStreamType<String>(
         Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, 'apply',
+            .compose(_dio.options, 'appliedJob',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data!;

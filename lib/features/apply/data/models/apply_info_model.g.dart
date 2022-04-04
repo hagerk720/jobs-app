@@ -8,12 +8,16 @@ part of 'apply_info_model.dart';
 
 ApplyInfoModel _$ApplyInfoModelFromJson(Map<String, dynamic> json) =>
     ApplyInfoModel(
-      user_id: json['user_id'] as int?,
-      job_id: json['job_id'] as int?,
-    );
+      userId: json['user_id'] as int?,
+      jobId: json['job_id'] as int?,
+    )
+      ..idUser = json['idUser'] as int?
+      ..idJob = json['idJob'] as int?;
 
 Map<String, dynamic> _$ApplyInfoModelToJson(ApplyInfoModel instance) =>
     <String, dynamic>{
-      'user_id': instance.user_id,
-      'job_id': instance.job_id,
+      'idUser': instance.idUser,
+      'idJob': instance.idJob,
+      'user_id': instance.userId,
+      'job_id': instance.jobId,
     };

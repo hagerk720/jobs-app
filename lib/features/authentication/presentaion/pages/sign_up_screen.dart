@@ -4,14 +4,13 @@ import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
 import 'package:jobs_tdd/features/authentication/domain/entities/signup/signup_data_response.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/signup/cubit/signup_cubit.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_page_title.dart';
-import 'package:jobs_tdd/features/jobs_list/presentation/pages/jobs_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 
 import '../../domain/entities/signup/signup_user.dart';
 import '../widgets/login_signup_btn.dart';
 
 class SignUpScreen extends StatefulWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -27,13 +26,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String? password;
   UserSignup? user;
   SignupDataResponse? response;
-  GlobalKey<FormState> _formKey_signup = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+      // ignore: non_constant_identifier_names
+      GlobalKey<FormState> _formKey_signup = GlobalKey<FormState>();
+
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,8 +92,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (value == password) {
                         confirmPassword = value;
                       } else {
-                        final snackBar =
-                            SnackBar(content: const Text('not matched'));
+                        
                       }
                       return null;
                     },
@@ -102,7 +102,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             BlocConsumer<SignupCubit, SignupState>(
               listener: (context, state) {
-                print(state);
                 state.when(
                     initial: () {},
                     signup: (response) async {
@@ -117,18 +116,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
               builder: (context, state) {
                 return LoginSignUpBtn(
                     btnText: "SignUp",
-                    on_Pressed: () => {
+                    onPressed: () => {
                           if (_formKey_signup.currentState!.validate())
                             {
                               user = UserSignup(
                                   name: name,
                                   email: email,
                                   password: password,
-                                  confirmPassword: confirmPassword),
+                                  password_confirmation: confirmPassword),
                               getData(user),
                             }
                           else
-                            {print("error")},
+                            {},
                         });
               },
             ),
@@ -142,7 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     String p =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-    RegExp regExp = new RegExp(p);
+    RegExp regExp =  RegExp(p);
 
     return regExp.hasMatch(em);
   }

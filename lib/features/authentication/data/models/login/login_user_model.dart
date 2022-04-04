@@ -4,10 +4,12 @@ part 'login_user_model.g.dart';
 
 @JsonSerializable()
 class LoginUserModel extends LoginUser {
-  LoginUserModel({
-   @JsonKey(name: "email") String? email , 
-   @JsonKey(name: "password") String? password , 
-  }) ;
+ @JsonKey(name: "email") final String? emailUser;
+ @JsonKey(name: "password") final String? passwordUser ;
+  const LoginUserModel({
+  required this.emailUser ,
+  required this.passwordUser , 
+  }):super(email: emailUser  , password: passwordUser) ;
   factory LoginUserModel.fromJson(Map<String, dynamic> json) =>
       _$LoginUserModelFromJson(json);
 

@@ -11,14 +11,14 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset('assets/images/home.jpg'),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(context, '/login');
             },
-            child: Text(
+            child: const Text(
               "Login",
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, '/sign_up');
             },
-            child: Text(
+            child: const Text(
               "SignUp",
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
