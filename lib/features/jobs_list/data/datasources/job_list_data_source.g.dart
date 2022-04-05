@@ -10,7 +10,7 @@ part of 'job_list_data_source.dart';
 
 class _JobListDataSource implements JobListDataSource {
   _JobListDataSource(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://laravel-job-api.herokuapp.com/api/';
+    baseUrl ??= 'https://jobs-proj.herokuapp.com/api/';
   }
 
   final Dio _dio;

@@ -5,7 +5,6 @@ import 'package:jobs_tdd/features/authentication/presentaion/bloc/login/cubit/lo
 import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_page_title.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_signup_btn.dart';
 
-
 // ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   String? email;
@@ -70,7 +69,6 @@ class LoginScreen extends StatelessWidget {
                         state.when(
                             initial: () {},
                             login: (response) async {
-
                               Navigator.pushNamed(context, "/jobs");
                             });
                       },
@@ -83,7 +81,6 @@ class LoginScreen extends StatelessWidget {
                                       user = LoginUser(
                                           email: email, password: password),
                                       getData(user, context),
-                                      Navigator.pushNamed(context, "/jobs")
                                     }
                                   else
                                     {}

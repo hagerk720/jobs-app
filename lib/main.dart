@@ -4,19 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/login/cubit/login_cubit.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/signup/cubit/signup_cubit.dart';
+import 'package:jobs_tdd/features/jobs_list/domain/entities/job.dart';
 import 'package:jobs_tdd/features/jobs_list/presentation/bloc/jobs_cubit/cubit/job_cubit.dart';
 import 'package:jobs_tdd/features/jobs_list/presentation/pages/jobs_screen.dart';
+import 'package:jobs_tdd/home.dart';
 
 import 'cores/di/injectable.dart';
 import 'features/apply/presenation/bloc/cubit/apply_cubit.dart';
 import 'features/apply/presenation/pages/apply_job_screen.dart';
 import 'features/authentication/presentaion/pages/login_screen.dart';
 import 'features/authentication/presentaion/pages/sign_up_screen.dart';
-import 'features/jobs_list/presentation/pages/home_screen.dart';
 
 Future<void> main() async {
   //HttpOverrides.global = MyHttpOverrides();
-  //  
+  //
   WidgetsFlutterBinding.ensureInitialized();
   await configureDependencies();
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomeScreen(),
+        '/': (context) => HomeScreen(),
         '/login': (context) => BlocProvider(
               create: (context) => getIt<LoginCubit>(),
               child: LoginScreen(),
@@ -47,7 +48,9 @@ class MyApp extends StatelessWidget {
             ),
         '/apply': (context) => BlocProvider(
               create: (context) => getIt<ApplyCubit>(),
-              child: ApplyJobScreen(),
+              child: ApplyJobScreen(
+                job: const Job(),
+              ),
             ),
       },
     );

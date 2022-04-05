@@ -1,18 +1,26 @@
-import 'package:jobs_tdd/features/apply/data/models/apply_info_model.dart';
+import 'dart:io';
 
+import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class ApplyInfo {
+class ApplyInfo extends Equatable {
   
-  int? idUser;
+  final int? userId;
   
-  int? idJob; 
-  ApplyInfo({
-    this.idUser,
-    this.idJob,
+  final int? jobId;
+ 
+  final int? expectedSalary;
+  
+  final int? currentSalary;
+
+  final File? fileCV;
+  const ApplyInfo({
+    this.fileCV,
+    this.currentSalary,
+    this.expectedSalary,
+    this.userId,
+    this.jobId,
   });
-ApplyInfoModel toModel(ApplyInfo applyInfo) {
-    return ApplyInfoModel(
-        userId: applyInfo.idUser, jobId: applyInfo.idJob );
-  }
-  
+  @override
+  List<Object?> get props => [];
 }

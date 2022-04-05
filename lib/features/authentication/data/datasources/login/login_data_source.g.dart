@@ -10,7 +10,7 @@ part of 'login_data_source.dart';
 
 class _LoginDataSource implements LoginDataSource {
   _LoginDataSource(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://laravel-job-api.herokuapp.com/api/';
+    baseUrl ??= 'https://jobs-proj.herokuapp.com/api/';
   }
 
   final Dio _dio;

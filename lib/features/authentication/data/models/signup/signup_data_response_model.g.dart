@@ -16,7 +16,6 @@ SignupDataResponseModel _$SignupDataResponseModelFromJson(
       json['token'] as String?,
     );
 
-// ignore: unused_element
 Map<String, dynamic> _$SignupDataResponseModelToJson(
         SignupDataResponseModel instance) =>
     <String, dynamic>{

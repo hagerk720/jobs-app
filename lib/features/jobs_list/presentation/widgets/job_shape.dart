@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
+import 'package:jobs_tdd/features/apply/presenation/pages/apply_job_screen.dart';
 
 import 'package:jobs_tdd/features/jobs_list/domain/entities/job.dart';
 
@@ -30,8 +31,14 @@ class JobShape extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                localDataSource!.saveJobId(job.idJob!);
-                Navigator.pushNamed(context, "/apply");
+                //localDataSource!.saveJobId(job.idJob!);
+                // Navigator.pushNamed(context, "/apply");
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ApplyJobScreen(
+                              job: job,
+                            )));
               },
               child: const Text(
                 "apply",

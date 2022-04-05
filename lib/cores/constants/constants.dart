@@ -1,1 +1,1 @@
-const String baseURL = "https://laravel-job-api.herokuapp.com/api/";
+const String baseURL = "https://jobs-proj.herokuapp.com/api/";

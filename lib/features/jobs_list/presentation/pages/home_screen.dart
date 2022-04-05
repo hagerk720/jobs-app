@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/images/home.jpg'),
+          Image.asset('assets/images/home.png'),
           const SizedBox(
             height: 10,
           ),
