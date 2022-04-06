@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class LoginScreenTitle extends StatelessWidget {
   String title;
-  String subTitle; 
-  LoginScreenTitle({Key? key, required this.title , required this.subTitle}) : super(key: key);
+  String subTitle;
+  LoginScreenTitle({Key? key, required this.title, required this.subTitle})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
@@ -16,7 +18,8 @@ class LoginScreenTitle extends StatelessWidget {
         ),
         Text(
           subTitle,
-          style: const TextStyle(color: Colors.amber, fontSize: 50),
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.primary, fontSize: 50),
         ),
       ],
     );

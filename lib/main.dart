@@ -2,11 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jobs_tdd/cores/theme/job_theme.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/login/cubit/login_cubit.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/signup/cubit/signup_cubit.dart';
 import 'package:jobs_tdd/features/jobs_list/domain/entities/job.dart';
 import 'package:jobs_tdd/features/jobs_list/presentation/bloc/jobs_cubit/cubit/job_cubit.dart';
-import 'package:jobs_tdd/features/jobs_list/presentation/pages/jobs_screen.dart';
+import 'package:jobs_tdd/features/jobs_list/presentation/pages/job_screen.dart';
 import 'package:jobs_tdd/home.dart';
 
 import 'cores/di/injectable.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: jobTheme,
       initialRoute: '/',
       routes: {
         '/': (context) => HomeScreen(),

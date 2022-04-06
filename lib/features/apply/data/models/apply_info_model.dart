@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'dart:io';
 
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:jobs_tdd/features/apply/domain/entities/apply_info.dart';
 
 

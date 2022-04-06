@@ -22,7 +22,6 @@ class JobRepositoryImp implements JobsRepositories {
   Future<Either<Failure, DataModel>> getJobsList() async {
     try {
       final token = await localDataSource.getToken();
-      print("tokeeen repo $token");
       final data = await dataSource.getJobsList(token: "Bearer ${token!}");
       return Right(data);
     } on ServerException {

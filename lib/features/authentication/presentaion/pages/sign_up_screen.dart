@@ -31,6 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     GlobalKey<FormState> _formKey_signup = GlobalKey<FormState>();
 
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
@@ -55,6 +56,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       return null;
                     },
                   ),
+                  Divider(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                    height: 3,
+                    thickness: 5,
+                  ),
                   TextFormField(
                     decoration: const InputDecoration(
                       hintText: 'Email',
@@ -67,6 +73,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       }
                       return null;
                     },
+                  ),
+                  Divider(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                    height: 3,
+                    thickness: 5,
                   ),
                   TextFormField(
                     decoration: const InputDecoration(
@@ -81,6 +92,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                       return null;
                     },
+                  ),
+                  Divider(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                    height: 3,
+                    thickness: 5,
                   ),
                   TextFormField(
                     decoration: const InputDecoration(
@@ -105,21 +121,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     });
               },
               builder: (context, state) {
-                return LoginSignUpBtn(
-                    btnText: "SignUp",
-                    onPressed: () => {
-                          if (_formKey_signup.currentState!.validate())
-                            {
-                              user = UserSignup(
-                                  name: name,
-                                  email: email,
-                                  password: password,
-                                  password_confirmation: confirmPassword),
-                              getData(user),
-                            }
-                          else
-                            {},
-                        });
+                return Center(
+                  child: LoginSignUpBtn(
+                      btnText: "SignUp",
+                      onPressed: () => {
+                            if (_formKey_signup.currentState!.validate())
+                              {
+                                user = UserSignup(
+                                    name: name,
+                                    email: email,
+                                    password: password,
+                                    password_confirmation: confirmPassword),
+                                getData(user),
+                              }
+                            else
+                              {},
+                          }),
+                );
               },
             ),
           ],

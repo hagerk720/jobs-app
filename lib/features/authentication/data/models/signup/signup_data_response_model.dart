@@ -6,7 +6,10 @@ part 'signup_data_response_model.g.dart';
 
 @JsonSerializable()
 class SignupDataResponseModel extends SignupDataResponse {
+// ignore: annotate_overrides, overridden_fields
 final SignupUserResponceModel? user;
+  @override
+  // ignore: overridden_fields
   final String? token;
    const SignupDataResponseModel(this.user, this.token) : super(user: user , token: token) ;
   factory SignupDataResponseModel.fromJson(Map<String, dynamic> json) =>

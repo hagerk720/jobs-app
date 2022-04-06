@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:jobs_tdd/features/authentication/domain/entities/login/login_user.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/login/cubit/login_cubit.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_page_title.dart';
@@ -21,6 +22,7 @@ class LoginScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.background,
           body: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
@@ -45,6 +47,11 @@ class LoginScreen extends StatelessWidget {
                           return null;
                         },
                       ),
+                      Divider(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        height: 3,
+                        thickness: 5,
+                      ),
                       TextFormField(
                         decoration: const InputDecoration(
                           hintText: 'password',
@@ -58,6 +65,11 @@ class LoginScreen extends StatelessWidget {
                           return null;
                         },
                       ),
+                      Divider(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        height: 3,
+                        thickness: 5,
+                      ),
                     ],
                   ),
                 ),
@@ -70,6 +82,19 @@ class LoginScreen extends StatelessWidget {
                             initial: () {},
                             login: (response) async {
                               Navigator.pushNamed(context, "/jobs");
+                            },
+                            error: (String error) {
+                              Fluttertoast.showToast(
+                                  msg: error,
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.black,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0);
+                            },
+                            loading: () {
+                              return const CircularProgressIndicator();
                             });
                       },
                       builder: (context, state) {
@@ -91,9 +116,10 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, '/sign_up');
                         },
-                        child: const Text(
+                        child: Text(
                           "Sign UP",
-                          style: TextStyle(color: Colors.amber),
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary),
                         ))
                   ],
                 ),

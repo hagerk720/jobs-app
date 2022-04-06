@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
 import 'package:jobs_tdd/features/apply/presenation/pages/apply_job_screen.dart';
+import 'package:jobs_tdd/features/apply/presenation/pages/description_job.dart';
 
 import 'package:jobs_tdd/features/jobs_list/domain/entities/job.dart';
 
@@ -13,42 +14,50 @@ class JobShape extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => JobDescriptionScreen(
+                      job: job,
+                    )));
+      },
       child: Card(
-        color: Colors.amber[100],
-        child: Column(
-          children: [
-            Text(
-              "job title " + job.nameJob.toString(),
-              style: const TextStyle(color: Colors.black),
-            ),
-            const SizedBox(
-              height: 7,
-            ),
-            const SizedBox(
-              height: 7,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                //localDataSource!.saveJobId(job.idJob!);
-                // Navigator.pushNamed(context, "/apply");
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ApplyJobScreen(
-                              job: job,
-                            )));
-              },
-              child: const Text(
-                "apply",
-                style: TextStyle(color: Colors.white),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    job.nameJob.toString(),
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                  Icon(
+                    Icons.bookmark_border,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ],
               ),
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateColor.resolveWith((states) => Colors.black)),
-            ),
-          ],
+              const SizedBox(
+                height: 7,
+              ),
+              Text(
+                job.description.toString(),
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              const SizedBox(
+                height: 7,
+              ),
+              Text(
+                "\$45k-\$70k/yr",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+            ],
+          ),
         ),
       ),
     );

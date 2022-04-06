@@ -12,14 +12,20 @@ part 'login_cubit.freezed.dart';
 
 @injectable
 class LoginCubit extends Cubit<LoginState> {
-  final LoginUseCase loginUseCase; 
+  final LoginUseCase loginUseCase;
   LoginCubit(this.loginUseCase) : super(const LoginState.initial());
   Future<void> loginUser(LoginUser loginUser) async {
-    await loginUseCase.call(loginUser).then((value) {
-      value?.fold(
-        (l) => {},
-        (r) => {emit(LoginState.login(r))},
-      );
-    });
+    emit(const LoginState.loading());
+    final value = await loginUseCase.call(loginUser);
+
+    emit(
+      value!.fold(
+        (l) {
+          print("errrrrorr $l");
+          return const LoginState.error("error in login");
+        },
+        (r) => LoginState.login(r),
+      ),
+    );
   }
 }

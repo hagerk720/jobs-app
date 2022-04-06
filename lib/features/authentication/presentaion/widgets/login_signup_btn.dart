@@ -13,11 +13,11 @@ class LoginSignUpBtn extends StatelessWidget {
       onPressed: () => onPressed(),
       child: Text(
         btnText,
-        style: const TextStyle(color: Colors.amber),
+        style: Theme.of(context).textTheme.headline4,
       ),
-      style: ButtonStyle(
+     /* style: ButtonStyle(
           backgroundColor:
-              MaterialStateColor.resolveWith((states) => Colors.black)),
+              MaterialStateColor.resolveWith((states) => Colors.black)),*/
     );
   }
 }

@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
     height = size.height;
     width = size.width;
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -26,51 +27,46 @@ class HomeScreen extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.only(left: 10, top: 25),
               width: width,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25),
                   ),
-                  color: Color(0xffd4af37)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const Text(
-                    "Find a perfect \n job for you ",
-                    style: TextStyle(
-                        color: Colors.black, fontSize: 30, fontFamily: "bold"),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(12.0),
-                    child: Text(
-                        "Dare to Live The Life You Dreamed For \n YourSelf. Go Forword And Make Your Dreams \n Come True ",
-                        style: TextStyle(color: Colors.black54)),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 55),
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: SizedBox(
-                        child: ElevatedButton(
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.black),
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ))),
+                  color: Theme.of(context).colorScheme.onPrimary),
+              child: ClipRect(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      "Find a perfect \n job for you ",
+                      style: Theme.of(context).textTheme.headline1,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                          "Dare to Live The Life You Dreamed For \n YourSelf. Go Forword And Make Your Dreams \n Come True ",
+                          style: Theme.of(context).textTheme.headline3),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: SizedBox(
+                          width: width / 1.5,
+                          child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(context, "/login");
                             },
-                            child: const Text(
+                            child: Text(
                               "get started",
-                            )),
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           )

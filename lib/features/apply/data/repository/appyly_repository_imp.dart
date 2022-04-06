@@ -24,7 +24,6 @@ class ApplyRepositoryImp implements ApplyRepository {
   Future<Either<Failure, String>> apply(ApplyInfo applyInfo) async {
     ApplyInfoModel applyInfoModel;
     try {
-      final token = await localDataSource.getToken();
       final userId = await localDataSource.getUserId();
       applyInfoModel = applyInfo.toModel();
       final data = await dataSource.apply(
