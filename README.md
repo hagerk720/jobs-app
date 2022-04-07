@@ -1,4 +1,7 @@
-#-------------------------------------------------jobs Application----------------------------------------------------------------------
+<p align="center">
+   #jobs Application 
+</p>
+
 
 # Description
 Jobs is a flutter application for users to view all jobs published on it and users can apply to any job they like by uploading their CV file 
