@@ -1,6 +1,5 @@
-<h align="center">
-# jobs Application 
-</h>
+
+<h1 align="center">jobs Application </h1>
 
 
 # Description
