@@ -5,6 +5,8 @@ import 'package:jobs_tdd/features/authentication/domain/entities/login/login_use
 import 'package:jobs_tdd/features/authentication/presentaion/bloc/login/cubit/login_cubit.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_page_title.dart';
 import 'package:jobs_tdd/features/authentication/presentaion/widgets/login_signup_btn.dart';
+import 'package:jobs_tdd/features/localization/presentaion/widget/custom_app_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
@@ -22,6 +24,7 @@ class LoginScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
+          appBar: CoustomAppBar(),
           backgroundColor: Theme.of(context).colorScheme.background,
           body: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -99,7 +102,8 @@ class LoginScreen extends StatelessWidget {
                       },
                       builder: (context, state) {
                         return LoginSignUpBtn(
-                            btnText: "Login",
+                            btnText: AppLocalizations.of(context)!
+                                .login,
                             onPressed: () => {
                                   if (_formKey_login.currentState!.validate())
                                     {

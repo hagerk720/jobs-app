@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jobs_tdd/features/localization/presentaion/bloc/cubit/locale_cubit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:jobs_tdd/features/localization/presentaion/widget/custom_app_bar.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -14,6 +18,7 @@ class HomeScreen extends StatelessWidget {
     height = size.height;
     width = size.width;
     return Scaffold(
+      appBar: const CoustomAppBar(),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -33,12 +38,13 @@ class HomeScreen extends StatelessWidget {
                     topRight: Radius.circular(25),
                   ),
                   color: Theme.of(context).colorScheme.onPrimary),
-              child: ClipRect(
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      "Find a perfect \n job for you ",
+                      //  "Find a perfect \n job for you ",
+                      AppLocalizations.of(context)!.welcomeing_in_first_page,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Padding(

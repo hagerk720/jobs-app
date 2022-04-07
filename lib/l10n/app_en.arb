@@ -1,0 +1,11 @@
+{
+   "welcomeing_in_first_page" : "Find a perfect job for you",
+   "@welcomeing_in_first_page" : {
+       "description" :"welcomeing_in_first_page" 
+   }, 
+   "login" : "login",
+   "@login" :{
+    "description" :"welcomeing_in_first_page" 
+
+   }
+} 

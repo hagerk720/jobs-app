@@ -15,8 +15,9 @@ class JobsScreen extends StatefulWidget {
 class _JobsScreenState extends State<JobsScreen> {
   @override
   void initState() {
-    BlocProvider.of<JobCubit>(context).getAllJobs();
     super.initState();
+        BlocProvider.of<JobCubit>(context).getAllJobs();
+
   }
 
   @override
