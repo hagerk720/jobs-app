@@ -16,9 +16,3 @@ SignupDataResponseModel _$SignupDataResponseModelFromJson(
       json['token'] as String?,
     );
 
-Map<String, dynamic> _$SignupDataResponseModelToJson(
-        SignupDataResponseModel instance) =>
-    <String, dynamic>{
-      'user': instance.user,
-      'token': instance.token,
-    };

@@ -21,7 +21,6 @@ class LoginCubit extends Cubit<LoginState> {
     emit(
       value!.fold(
         (l) {
-          print("errrrrorr $l");
           return const LoginState.error("error in login");
         },
         (r) => LoginState.login(r),

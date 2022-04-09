@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_tdd/cores/utils/shared_preferance.dart';
-import 'package:jobs_tdd/features/apply/presenation/pages/apply_job_screen.dart';
 import 'package:jobs_tdd/features/apply/presenation/pages/description_job.dart';
 
 import 'package:jobs_tdd/features/jobs_list/domain/entities/job.dart';

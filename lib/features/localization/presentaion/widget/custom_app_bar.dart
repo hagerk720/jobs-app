@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobs_tdd/features/localization/presentaion/widget/language_picker.dart';
 
-class CoustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+class CoustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CoustomAppBar({
     Key? key,
   }) : super(key: key);
@@ -11,11 +11,10 @@ class CoustomAppBar extends StatelessWidget implements PreferredSizeWidget{
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
-      actions:const [ LanguagePicker()],
-
+      actions: const [LanguagePicker()],
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(30);
 }

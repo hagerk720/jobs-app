@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jobs_tdd/features/localization/presentaion/bloc/cubit/locale_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:jobs_tdd/features/localization/presentaion/widget/custom_app_bar.dart';
 
@@ -26,7 +24,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           SizedBox(
               width: width,
-              height: height / 2,
+              height: height / 2.5,
               child: Image.asset('assets/images/search_image.png')),
           Expanded(
             child: Container(
@@ -43,7 +41,6 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      //  "Find a perfect \n job for you ",
                       AppLocalizations.of(context)!.welcomeing_in_first_page,
                       style: Theme.of(context).textTheme.headline1,
                     ),

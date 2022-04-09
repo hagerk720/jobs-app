@@ -13,7 +13,3 @@ DataModel _$DataModelFromJson(Map<String, dynamic> json) => DataModel(
       Message: json['Message'] as String?,
     );
 
-Map<String, dynamic> _$DataModelToJson(DataModel instance) => <String, dynamic>{
-      'data': instance.data,
-      'Message': instance.Message,
-    };

@@ -33,7 +33,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Locale? lang;
     return BlocProvider(
       create: (context) => getIt<LocaleCubit>(),
       child: BlocBuilder<LocaleCubit, LocaleState>(
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: jobTheme,
-            locale: state is LocaleStateChanged ? Locale(state.locale) : Locale("en"),
+            locale: state is LocaleStateChanged ? Locale(state.locale) : const Locale("en"),
             supportedLocales: L10n.all,
             localizationsDelegates: const [
               AppLocalizations.delegate,

@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          appBar: CoustomAppBar(),
+          appBar: const CoustomAppBar(),
           backgroundColor: Theme.of(context).colorScheme.background,
           body: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

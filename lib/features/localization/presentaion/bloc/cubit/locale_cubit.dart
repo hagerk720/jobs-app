@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -16,5 +15,5 @@ class LocaleCubit extends Cubit<LocaleState> {
     print("heeeere"); 
     emit(const Locale('ar', ''));
   }*/
-  // void toEnglish() => emit(const LocaleState.locale(Locale("en")));
+  void toEnglish() => emit( LocaleState.locale("en"));
 }
